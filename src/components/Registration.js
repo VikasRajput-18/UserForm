@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { signUpSchema } from "../schemas/schema";
@@ -458,3 +459,14 @@ const Registration = () => {
 };
 
 export default Registration;
+=======
+import React from 'react'
+
+const Registration = () => {
+  return (
+    <div>Registration</div>
+  )
+}
+
+export default Registration
+>>>>>>> main
