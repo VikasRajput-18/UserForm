@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./Registration.css";
 import { useFormik } from "formik";
 import { signUpSchema } from "../schemas/schema";
 import { Table } from "react-bootstrap";
 
 const Registration = () => {
   const [data, setData] = useState([]);
+
 
   const initialValues = {
     name: "",
@@ -29,8 +29,7 @@ const Registration = () => {
     blood_group: "",
     nationality: "",
   };
-
-  const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
+  const Formik = useFormik({
     initialValues,
     validateOnChange: true,
     validationSchema: signUpSchema,
@@ -41,6 +40,19 @@ const Registration = () => {
     },
   });
 
+
+  const { values, handleBlur, handleChange, handleSubmit, errors , handleReset } = useFormik({
+    initialValues,
+    validateOnChange: true,
+    validationSchema: signUpSchema,
+    validateOnBlur: false,
+    onSubmit: (values, action) => {
+      action.resetForm();
+      setData((prev) => [values, ...prev]);
+    },
+  });
+
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -371,7 +383,10 @@ const Registration = () => {
         </div>
 
         <div className="flex justify-end gap-5">
-          <button className="bg-red-600 px-4 py-2 rounded-md text-white ">
+          <button
+            className="bg-red-600 px-4 py-2 rounded-md text-white "
+            type="button" onClick={handleReset}
+          >
             Cancel
           </button>
           <button
