@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import { signUpSchema } from "../schemas/schema";
@@ -30,19 +30,9 @@ const Registration = () => {
     blood_group: "",
     nationality: "",
   };
-  const Formik = useFormik({
-    initialValues,
-    validateOnChange: true,
-    validationSchema: signUpSchema,
-    validateOnBlur: false,
-    onSubmit: (values, action) => {
-      action.resetForm();
-      setData((prev) => [values, ...prev]);
-    },
-  });
 
 
-  const { values, handleBlur, handleChange, handleSubmit, errors , handleReset } = useFormik({
+  const { values, handleBlur, handleChange, handleSubmit , handleReset } = useFormik({
     initialValues,
     validateOnChange: true,
     validationSchema: signUpSchema,
@@ -192,7 +182,7 @@ const Registration = () => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="border border-sky-500 px-3 py-1 rounded-sm"
+                className="border border-sky-500 px-3 py-1 rounded-sm w-96"
               />
             </div>
 
@@ -226,7 +216,7 @@ const Registration = () => {
                   value={values.address}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="border border-sky-500 px-3 py-1 rounded-sm"
+                  className="border border-sky-500 px-3 py-1 rounded-sm w-96"
                 />
               </div>
 
@@ -256,7 +246,7 @@ const Registration = () => {
                   value={values.city}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="border border-sky-500 px-3 py-1 rounded-sm"
+                  className="border border-sky-500 px-3 py-1 rounded-sm w-80"
                 >
                   <option>Enter City/Town/Village</option>
                   <option value={"mumbai"}>Mumbai</option>
@@ -307,7 +297,7 @@ const Registration = () => {
                   type="text"
                   id="occupation"
                   name="occupation"
-                  palceholder="Enter Occupation"
+                  placeholder="Enter Occupation"
                   value={values.occupation}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -458,15 +448,6 @@ const Registration = () => {
   );
 };
 
-export default Registration;
-=======
-import React from 'react'
 
-const Registration = () => {
-  return (
-    <div>Registration</div>
-  )
-}
 
 export default Registration
->>>>>>> main
